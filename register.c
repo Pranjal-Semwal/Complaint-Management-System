@@ -30,10 +30,15 @@ void register_complaint(){
     fgets(c.describe,200,stdin);
     remove_newline(c.describe);
     
+    printf("Urgency of your complaint low, medium, high: ");
+    fgets(c.urgency,200,stdin);
+    remove_newline(c.urgency);
+
     strcpy(c.status,"pending");
 
     fwrite(&c,sizeof(struct complaint),1,fptr);
     fclose(fptr);
     
+    printf("your complaint id is %d",c.complaintid);
     printf("Your complaint is successfully registered.\n");
 }
